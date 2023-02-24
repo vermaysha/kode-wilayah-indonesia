@@ -39,6 +39,8 @@ function writeCsv(string $fileName, mysqli_result $result, callable $callback = 
             $row = $callback($row);
         }
 
+        $row[1] = preg_replace('/\s+/', ' ', $row[1]);
+
         $codesArr = explode('.', $row[0]);
         $codesLength = count($codesArr) - 1;
 

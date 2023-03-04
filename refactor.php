@@ -46,8 +46,8 @@ function writeCsv(string $fileName, mysqli_result $result, callable $callback = 
 
         if ($codesLength > 0) {
             $codes = [
-                $codesArr[$codesLength],
-                $codesArr[$codesLength - 1]
+                implode('', $codesArr),
+                implode('', array_slice($codesArr, 0, -1))
             ];
     
             $row = array_merge($codes, [$row[1]]);
